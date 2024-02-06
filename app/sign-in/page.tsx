@@ -17,6 +17,7 @@ const SignIn = () => {
         try {
             const res = await signInWithEmailAndPassword(email, password);
             console.log('res', {res});
+            sessionStorage.setItem('user', true) // boolean
             setEmail('');
             setPassword('');
             router.push('/')
@@ -24,6 +25,7 @@ const SignIn = () => {
             console.error(e)
         }
     }
+
     return (<div className="wrapper">
         <div className="form-wrapper">
             <form onSubmit={handleSignin} className="form">
